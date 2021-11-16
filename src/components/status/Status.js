@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSubscription, useMqttState } from 'mqtt-react-hooks';
+import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
+import CellWifiIcon from '@mui/icons-material/CellWifi';
 
 import './Status.css'
 
@@ -10,11 +13,13 @@ export default function Status() {
 
     return (
         <>
-            <h2>Live Status</h2>
+            <div className="card">
+                <h2>Live Status</h2>
 
-            <p>Battery Status: { batteryMsg ? batteryMsg.message : 'None' }</p>
-            <p>Current prediction: { predictionMsg ? predictionMsg.message : 'None' }</p>
-            <p>Connection state: <span className={ `status-${connectionStatus == 'Connected'}`}>{ connectionStatus }</span></p>
+                <div><BatteryChargingFullIcon fontSize="small"/><span>Battery Status: { batteryMsg ? batteryMsg.message : 'None' }</span></div>
+                <div><AccessibilityIcon fontSize="small"/><span>Current posture: { predictionMsg ? predictionMsg.message : 'None' }</span></div>
+                <div><CellWifiIcon fontSize="small"/><span>Connection state: <span className={ `status-${connectionStatus == 'Connected'}`}>{ connectionStatus }</span></span></div>
+            </div>
         </>
     )
 }

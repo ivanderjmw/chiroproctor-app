@@ -14,16 +14,11 @@ export default function Status() {
     return (
         <>
             <h2>Reccomendations</h2>
-            {message?.message}
             {
                 message?.message ? JSON.parse(message.message).map((vidId, i) => (
                     <Youtube videoId={vidId} opts={opts} key={i}/>
                 )) : 'No reccommendations yet'
             }
-            {/* <div>
-                <h3></h3>
-                <Youtube videoId={'liJVSwOiiwg'} opts={opts}/>
-            </div> */}
         </>
     )
 }

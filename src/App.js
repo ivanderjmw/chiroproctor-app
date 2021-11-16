@@ -2,37 +2,27 @@ import { Connector } from 'mqtt-react-hooks'
 import dotenv from 'dotenv'
 
 import Status from './components/status/Status'
+import Example from './components/Example'
 import Realtimechart from './components/realtimechart/Realtimechart'
 import Videos from './components/videos/Videos'
 
 import logo from './logo.svg';
 import './App.css';
 
+
 function App() {
   dotenv.config()
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
 
+      <h1>ChiroProctor</h1>
       <div>
-        {/* <Connector brokerUrl={process.env.MQTT_BROKER_URL || 'ws://test.mosquitto.org:8080/mqtt'}> */}
+        <Connector brokerUrl={process.env.MQTT_BROKER_URL || 'ws://localhost:9001'} options={{ keepalive: 0 }}>
           <Status/>
-          {/* <Realtimechart/> */}
+          <Realtimechart/>
           {/* <Videos/> */}
-        {/* </Connector> */}
+          <Example />
+        </Connector>
 
       </div>
     </div>

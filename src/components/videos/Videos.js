@@ -15,9 +15,9 @@ export default function Status() {
         <>
             <h1>Video list:</h1>
             {
-                message?.message?.map(vidId => (
+                message?.message ? Array.from(message.message).map(vidId => (
                     <Youtube videoId={vidId} opts={opts}/>
-                ))
+                )) : ''
             }
         </>
     )

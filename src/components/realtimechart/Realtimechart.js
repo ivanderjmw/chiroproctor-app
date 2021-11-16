@@ -9,7 +9,11 @@ export default function Status() {
     ])
 
     useEffect(() => {
-        if (message) setData((dt) => [...dt, [new Date().toLocaleString('en-SG'), message.message]])
+        if (message) {
+            setData((dt) => [...dt, [new Date(), message.message]]
+            // Filter to last hour
+            .filter((d) => (new Date().getTime() - d[0].getTime()) < 3600000))
+        }
     }, [message])
 
     const options = {
@@ -24,7 +28,7 @@ export default function Status() {
 
     const toChartData = (data) => {
         return {
-            labels: data.map((d) => d[0]),
+            labels: data.map((d) => d[0].toLocaleString('en-SG')),
             datasets: [
                 {
                     label: 'Posture',
@@ -50,7 +54,7 @@ export default function Status() {
             {
                 data.map((d,i) => (
                     <tr key={i}>
-                        <td>{d[0]}</td>
+                        <td>{d[0].toLocaleString('en-SG')}</td>
                         <td>{d[1]}</td>
                     </tr>
                 ))

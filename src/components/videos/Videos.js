@@ -3,22 +3,27 @@ import Youtube from 'react-youtube'
 
 export default function Status() {
     const { message } = useSubscription([
-        'videos',
+        'video',
     ])
 
     const opts = {
-        height: '390',
-        width: '640',
+        height: '200',
+        width: '300',
     }
 
     return (
         <>
-            <h1>Video list:</h1>
+            <h2>Reccomendations</h2>
+            {message?.message}
             {
-                message?.message ? Array.from(message.message).map(vidId => (
-                    <Youtube videoId={vidId} opts={opts}/>
-                )) : ''
+                message?.message ? JSON.parse(message.message).map((vidId, i) => (
+                    <Youtube videoId={vidId} opts={opts} key={i}/>
+                )) : 'No reccommendations yet'
             }
+            {/* <div>
+                <h3></h3>
+                <Youtube videoId={'liJVSwOiiwg'} opts={opts}/>
+            </div> */}
         </>
     )
 }

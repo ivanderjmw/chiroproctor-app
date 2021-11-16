@@ -1,5 +1,12 @@
-.App {
-  text-align: center;
+body {
   background-color: aquamarine;
 }
 
+.App {
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  
+}

@@ -10,9 +10,11 @@ export default function Status() {
 
     return (
         <>
-            <h2>Battery Status: { batteryMsg ? batteryMsg.message : 'None' }</h2>
-            <h2>Current prediction: { predictionMsg ? predictionMsg.message : 'None' }</h2>
-            <h2>Connection state: <span className={ `status-${connectionStatus == 'Connected'}`}>{ connectionStatus }</span></h2>
+            <h2>Live Status</h2>
+
+            <p>Battery Status: { batteryMsg ? batteryMsg.message : 'None' }</p>
+            <p>Current prediction: { predictionMsg ? predictionMsg.message : 'None' }</p>
+            <p>Connection state: <span className={ `status-${connectionStatus == 'Connected'}`}>{ connectionStatus }</span></p>
         </>
     )
 }

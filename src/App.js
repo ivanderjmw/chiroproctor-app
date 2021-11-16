@@ -20,8 +20,7 @@ function App() {
         <Connector brokerUrl={process.env.MQTT_BROKER_URL || 'ws://localhost:9001'} options={{ keepalive: 0 }}>
           <Status/>
           <Realtimechart/>
-          {/* <Videos/> */}
-          <Example />
+          <Videos/>
         </Connector>
 
       </div>

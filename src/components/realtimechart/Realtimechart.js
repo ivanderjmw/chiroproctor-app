@@ -32,7 +32,7 @@ export default function Status() {
       datasets: [
         {
           label: "Posture",
-          data: data.map((d) => (d[1] === "good" ? 1 : 0)),
+          data: data.map((d) => (d[1] === "NORMAL" ? 3 : (d[1] === "SCOLIOSIS" ? 2 : (d[1] === "KYPHOSIS" ? 1 : 0)))),
           fill: false,
         },
       ],

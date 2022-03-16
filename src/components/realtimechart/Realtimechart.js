@@ -19,8 +19,10 @@ export default function Status() {
   const options = {
     scales: {
       yAxes: {
-        min: -0.1,
-        max: 1.1,
+        type: "category",
+        labels: ["NORMAL", "SCOLIOSIS", "KYPHOSIS", "LORDOSIS"],
+        offset: true,
+        position: "left",
       },
     },
     maintainAspectRatio: false,
@@ -32,8 +34,9 @@ export default function Status() {
       datasets: [
         {
           label: "Posture",
-          data: data.map((d) => (d[1] === "NORMAL" ? 3 : (d[1] === "SCOLIOSIS" ? 2 : (d[1] === "KYPHOSIS" ? 1 : 0)))),
+          data: data.map((d) => d[1]),
           fill: false,
+          stepped: true,
         },
       ],
     };
